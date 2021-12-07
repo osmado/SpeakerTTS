@@ -245,7 +245,7 @@ static void init_i2s(void)
         .data_in_num = I2S_PIN_NO_CHANGE
     };
 
-    i2s_driver_install(I2S_NUM, &i2s_config, 0, NULL); 
+    i2s_driver_install(I2S_NUM, &i2s_config, 0, NULL);
     i2s_set_pin(I2S_NUM, &pin_config);
 }
 
@@ -263,13 +263,13 @@ int i2s_stream_chunk(const cst_wave *w, int start, int size,
     /* This particular example is *not* thread safe */
 
     if (start == 0) {
-        i2s_set_sample_rates(I2S_NUM, w->sample_rate);  //ad = audio_open(w->sample_rate,w->num_channels,CST_AUDIO_LINEAR16);
+//        i2s_set_sample_rates(I2S_NUM, w->sample_rate);  //ad = audio_open(w->sample_rate,w->num_channels,CST_AUDIO_LINEAR16);
     }
 
-    size_t bytes_written = 0;  
-    i2s_write(I2S_NUM, &(w->samples[start]), size*sizeof(uint16_t) /*sizeof(uint16_t) * wav->num_samples*/, &bytes_written, 100); 
+//    size_t bytes_written = 0;
+//    i2s_write(I2S_NUM, &(w->samples[start]), size*sizeof(uint16_t) /*sizeof(uint16_t) * wav->num_samples*/, &bytes_written, 100);
 
-    ESP_LOGI(TAG, "Wrote %d bytes to I2S", bytes_written);
+//    ESP_LOGI(TAG, "Wrote %d bytes to I2S", bytes_written);
 
 
     if (last == 1)
@@ -289,8 +289,8 @@ void synth_task( void * pvParameters )
 {
     ESP_LOGI(TAG, "Starting synth task from core %d", xPortGetCoreID());
 
-    /* I2S */
-    init_i2s();
+//    /* I2S */
+//    init_i2s();
 
     /* Flite */
     flite_init();        
@@ -343,9 +343,9 @@ void app_main()
     
     ESP_ERROR_CHECK(nvs_flash_init());
     
-    /* Init Wifi */
-    static httpd_handle_t server = NULL;
-    init_wifi(&server);
+//    /* Init Wifi */
+//    static httpd_handle_t server = NULL;
+//    init_wifi(&server);
 
     /* Init queue and task for executing speech synth */
     text_que = xQueueCreate( 32, sizeof( char* ) );

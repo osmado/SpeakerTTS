@@ -3,7 +3,7 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := flite-example
+PROJECT_NAME := SpeakerTTS
 
 include $(IDF_PATH)/make/project.mk
 

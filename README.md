@@ -1,3 +1,7 @@
+
+# WORK IN PROGRESS
+
+
 # Flite on ESP32 Example
 
 This project demonstrates speech synthesis on the ESP32. It performs the
